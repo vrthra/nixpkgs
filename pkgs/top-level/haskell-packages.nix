@@ -21,12 +21,6 @@
 #       enabled, its dependencies should have profiling enabled as well.
 #       Therefore, this is implemented as a global flag.
 #
-#    modifyPrio:
-#       Either the identity function or lowPrio is intended to be passed
-#       here. The idea is that we can make a complete set of Haskell packages
-#       have low priority from the outside.
-#
-#
 # Policy for keeping multiple versions:
 #
 # We keep multiple versions for
@@ -43,7 +37,7 @@
 #
 # For most packages, however, we keep only one version, and use default.nix.
 
-{ pkgs, newScope, ghc, modifyPrio ? (x : x)
+{ pkgs, newScope, ghc
 , enableLibraryProfiling ? false
 , enableSharedLibraries ? pkgs.stdenv.lib.versionOlder "7.7" ghc.version
 , enableSharedExecutables ? pkgs.stdenv.lib.versionOlder "7.7" ghc.version
@@ -51,17 +45,19 @@
 , enableStaticLibraries ? true
 }:
 
-# We redefine callPackage to take into account the new scope. The optional
-# modifyPrio argument can be set to lowPrio to make all Haskell packages have
-# low priority.
+# We redefine callPackage to take into account the new scope.
 
-self : let callPackage = x : y : modifyPrio (newScope self x y); in
+self :
+  let callPackageWithScope = scope : x : y : newScope scope x y //
+        { extendScope = ext : callPackageWithScope (pkgs.lib.oop.newExtend self.nixClass (s : ext s)) x y; };
+      callPackage = callPackageWithScope self;
+      overrideScope = x : scope : (callPackage x {}).extendScope scope; in
 
 # Indentation deliberately broken at this point to keep the bulk
 # of this file at a low indentation level.
 
 {
-  inherit callPackage;
+  inherit callPackage overrideScope;
 
   # GHC and its wrapper
   #
@@ -3185,11 +3181,9 @@ self : let callPackage = x : y : modifyPrio (newScope self x y); in
 
   # Games.
 
-  LambdaHack = callPackage ../games/LambdaHack {
-    vectorBinaryInstances = self.vectorBinaryInstances.override {
-      binary = self.binary_0_7_2_2; # the miniutter build input requires this version
-    };
-  };
+  LambdaHack = overrideScope ../games/LambdaHack (self : {
+    binary = self.binary_0_7_2_2; # the miniutter build input requires this version
+  });
 
   Allure = callPackage ../games/Allure {};
 

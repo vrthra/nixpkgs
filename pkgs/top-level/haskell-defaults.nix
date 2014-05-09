@@ -145,22 +145,26 @@
    ({ ghcPath
     , ghcBinary ? ghc6101Binary
     , prefFun
-    , extension ? (self : super : {})
+    , extension ? {}
     , profExplicit ? false, profDefault ? false
     , modifyPrio ? lowPrio
     , extraArgs ? {}
     } :
     let haskellPackagesClass = import ./haskell-packages.nix {
-          inherit pkgs newScope modifyPrio;
+          inherit pkgs;
+
+          # By default the modifyPrio argument is set to lowPrio to make all Haskell packages have
+          # low priority.
+          newScope = scope : x : y : modifyPrio (newScope scope x y);
+
           enableLibraryProfiling =
             if profExplicit then profDefault
                             else config.cabal.libraryProfiling or profDefault;
           ghc = callPackage ghcPath ({ ghc = ghcBinary; } // extraArgs);
         };
-        haskellPackagesPrefsClass = self : let super = haskellPackagesClass self; in super // prefFun self super;
-        haskellPackagesExtensionClass = self : let super = haskellPackagesPrefsClass self; in super // extension self super;
-        haskellPackages = haskellPackagesExtensionClass haskellPackages;
-    in haskellPackages);
+        haskellPackagesPrefsClass = pkgs.lib.oop.extend haskellPackagesClass prefFun;
+        haskellPackagesExtensionClass = pkgs.lib.oop.extend haskellPackagesPrefsClass extension;
+    in pkgs.lib.oop.new haskellPackagesExtensionClass);
 
   defaultVersionPrioFun =
     profDefault :
