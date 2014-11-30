@@ -210,6 +210,8 @@ self :
 
   aws = callPackage ../development/libraries/haskell/aws {};
 
+  awsEc2 = callPackage ../development/libraries/haskell/aws-ec2 {};
+
   authenticate = callPackage ../development/libraries/haskell/authenticate {};
 
   authenticateOauth = callPackage ../development/libraries/haskell/authenticate-oauth {};
@@ -335,9 +337,9 @@ self :
 
   bzlib = callPackage ../development/libraries/haskell/bzlib {};
 
-  c2hs = callPackage ../development/libraries/haskell/c2hs {};
+  c2hs = callPackage ../development/tools/haskell/c2hs {};
 
-  c2hsc = callPackage ../development/libraries/haskell/c2hsc {};
+  c2hsc = callPackage ../development/tools/haskell/c2hsc {};
 
   Cabal_1_16_0_3 = callPackage ../development/libraries/haskell/Cabal/1.16.0.3.nix {};
   Cabal_1_18_1_3 = callPackage ../development/libraries/haskell/Cabal/1.18.1.3.nix {};
@@ -391,6 +393,8 @@ self :
   ChartCairo = callPackage ../development/libraries/haskell/Chart-cairo {};
   ChartDiagrams = callPackage ../development/libraries/haskell/Chart-diagrams {};
   ChartGtk = callPackage ../development/libraries/haskell/Chart-gtk {};
+
+  chaselevDeque = callPackage ../development/libraries/haskell/chaselev-deque {};
 
   ChasingBottoms = callPackage ../development/libraries/haskell/ChasingBottoms {};
 
@@ -574,6 +578,8 @@ self :
 
   dataFix = callPackage ../development/libraries/haskell/data-fix {};
 
+  dataFlags = callPackage ../development/libraries/haskell/data-flags {};
+
   dataHash = callPackage ../development/libraries/haskell/data-hash {};
 
   dataInttrie = callPackage ../development/libraries/haskell/data-inttrie {};
@@ -646,6 +652,8 @@ self :
     inherit (pkgs) zlib;
   };
 
+  digestPure = callPackage ../development/libraries/haskell/digest-pure {};
+
   digestiveFunctors = callPackage ../development/libraries/haskell/digestive-functors {};
 
   digestiveFunctorsAeson = callPackage ../development/libraries/haskell/digestive-functors-aeson {};
@@ -669,6 +677,10 @@ self :
   distributedStatic = callPackage ../development/libraries/haskell/distributed-static {};
 
   distributedProcess = callPackage ../development/libraries/haskell/distributed-process {};
+
+  distributedProcessMonadControl = callPackage ../development/libraries/haskell/distributed-process-monad-control {};
+
+  distributedProcessP2p = callPackage ../development/libraries/haskell/distributed-process-p2p {};
 
   distributedProcessPlatform = callPackage ../development/libraries/haskell/distributed-process-platform {};
 
@@ -719,6 +731,7 @@ self :
   editline = callPackage ../development/libraries/haskell/editline {};
 
   ekg = callPackage ../development/libraries/haskell/ekg {};
+  ekgBosun = callPackage ../development/libraries/haskell/ekg-bosun {};
   ekgCarbon = callPackage ../development/libraries/haskell/ekg-carbon {};
   ekgCore = callPackage ../development/libraries/haskell/ekg-core {};
 
@@ -885,6 +898,8 @@ self :
 
   genericDeriving = callPackage ../development/libraries/haskell/generic-deriving {};
 
+  GenericPretty = callPackage ../development/libraries/haskell/GenericPretty {};
+
   genericsSop = callPackage ../development/libraries/haskell/generics-sop {};
 
   ghcCore = callPackage ../development/libraries/haskell/ghc-core {};
@@ -980,6 +995,8 @@ self :
 
   gnutls = callPackage ../development/libraries/haskell/gnutls { inherit (pkgs) gnutls; };
 
+  greencard = callPackage ../development/libraries/haskell/greencard { };
+
   gsasl = callPackage ../development/libraries/haskell/gsasl { inherit (pkgs) gsasl; };
 
   gtk = callPackage ../development/libraries/haskell/gtk {
@@ -1012,6 +1029,8 @@ self :
 
   graphWrapper = callPackage ../development/libraries/haskell/graph-wrapper {};
 
+  grid = callPackage ../development/libraries/haskell/grid {};
+
   groom = callPackage ../development/libraries/haskell/groom {};
 
   groups = callPackage ../development/libraries/haskell/groups {};
@@ -1037,6 +1056,8 @@ self :
   hashedStorage = callPackage ../development/libraries/haskell/hashed-storage {};
 
   hashtables = callPackage ../development/libraries/haskell/hashtables {};
+
+  hask = callPackage ../development/libraries/haskell/hask {};
 
   haskelldb = callPackage ../development/libraries/haskell/haskelldb {};
 
@@ -1095,6 +1116,8 @@ self :
 
   hgal = callPackage ../development/libraries/haskell/hgal {};
 
+  higherLeveldb = callPackage ../development/libraries/haskell/higher-leveldb {};
+
   hourglass = callPackage ../development/libraries/haskell/hourglass {};
 
   hplayground = callPackage ../development/libraries/haskell/hplayground {};
@@ -1124,6 +1147,8 @@ self :
   httpReverseProxy = callPackage ../development/libraries/haskell/http-reverse-proxy {};
 
   hackageDb = callPackage ../development/libraries/haskell/hackage-db {};
+
+  handaGdata = callPackage ../development/libraries/haskell/handa-gdata {};
 
   haskellForMaths = callPackage ../development/libraries/haskell/HaskellForMaths {};
 
@@ -1228,6 +1253,10 @@ self :
 
   hS3 = callPackage ../development/libraries/haskell/hS3 {};
 
+  hsbencher = callPackage ../development/libraries/haskell/hsbencher {};
+
+  hsbencherFusion = callPackage ../development/libraries/haskell/hsbencher-fusion {};
+
   hsBibutils = callPackage ../development/libraries/haskell/hs-bibutils {};
 
   hsc3 = callPackage ../development/libraries/haskell/hsc3 {};
@@ -1292,6 +1321,8 @@ self :
   hspecCheckers = callPackage ../development/libraries/haskell/hspec-checkers {};
 
   hspecCore = callPackage ../development/libraries/haskell/hspec-core {};
+
+  hspecContrib = callPackage ../development/libraries/haskell/hspec-contrib {};
 
   hspecDiscover = callPackage ../development/libraries/haskell/hspec-discover {};
 
@@ -1414,6 +1445,10 @@ self :
 
   jpeg = callPackage ../development/libraries/haskell/jpeg {};
 
+  jsFlot = callPackage ../development/libraries/haskell/js-flot {};
+
+  jsJquery = callPackage ../development/libraries/haskell/js-jquery {};
+
   json = callPackage ../development/libraries/haskell/json {};
 
   jsonAssertions = callPackage ../development/libraries/haskell/json-assertions {};
@@ -1474,6 +1509,8 @@ self :
   lambdacubeEngine = callPackage ../development/libraries/haskell/lambdacube-engine {};
 
   largeword = callPackage ../development/libraries/haskell/largeword {};
+
+  lattices = callPackage ../development/libraries/haskell/lattices {};
 
   lazysmallcheck = callPackage ../development/libraries/haskell/lazysmallcheck {};
 
@@ -1541,11 +1578,17 @@ self :
 
   logging = callPackage ../development/libraries/haskell/logging {};
 
+  loggingFacade = callPackage ../development/libraries/haskell/logging-facade {};
+
+  loggingFacadeJournald = callPackage ../development/libraries/haskell/logging-facade-journald {};
+
   logict = callPackage ../development/libraries/haskell/logict {};
 
   loop = callPackage ../development/libraries/haskell/loop {};
 
   lushtags = callPackage ../development/libraries/haskell/lushtags {};
+
+  lzmaConduit = callPackage ../development/libraries/haskell/lzma-conduit {};
 
   lzmaEnumerator = callPackage ../development/libraries/haskell/lzma-enumerator {};
 
@@ -1739,6 +1782,8 @@ self :
   networkConduit = callPackage ../development/libraries/haskell/network-conduit {};
   networkConduitTls = callPackage ../development/libraries/haskell/network-conduit-tls {};
 
+  networkData = callPackage ../development/libraries/haskell/network-data {};
+
   networkFancy = callPackage ../development/libraries/haskell/network-fancy {};
 
   networkInfo = callPackage ../development/libraries/haskell/network-info {};
@@ -1826,6 +1871,8 @@ self :
 
   parsec = callPackage ../development/libraries/haskell/parsec {};
 
+  parsek = callPackage ../development/libraries/haskell/parsek {};
+
   parsers = callPackage ../development/libraries/haskell/parsers {};
 
   parsimony = callPackage ../development/libraries/haskell/parsimony {};
@@ -1901,6 +1948,8 @@ self :
   placeholders = callPackage ../development/libraries/haskell/placeholders {};
 
   plugins= callPackage ../development/libraries/haskell/plugins {};
+
+  polynomialsBernstein = callPackage ../development/libraries/haskell/polynomials-bernstein {};
 
   polyparse = callPackage ../development/libraries/haskell/polyparse {};
 
@@ -2209,6 +2258,8 @@ self :
 
   snapletAcidState = callPackage ../development/libraries/haskell/snaplet-acid-state {};
 
+  snapErrorCollector = callPackage ../development/libraries/haskell/snap-error-collector {};
+
   snapletPostgresqlSimple = callPackage ../development/libraries/haskell/snaplet-postgresql-simple {};
 
   snapletRedis = callPackage ../development/libraries/haskell/snaplet-redis {};
@@ -2354,6 +2405,8 @@ self :
   stmConduit = callPackage ../development/libraries/haskell/stm-conduit {};
 
   stmContainers = callPackage ../development/libraries/haskell/stm-containers {};
+
+  stmDelay = callPackage ../development/libraries/haskell/stm-delay {};
 
   STMonadTrans = callPackage ../development/libraries/haskell/STMonadTrans {};
 
@@ -2504,6 +2557,8 @@ self :
 
   threads = callPackage ../development/libraries/haskell/threads {};
 
+  threadLocalStorage = callPackage ../development/libraries/haskell/thread-local-storage {};
+
   thReifyMany = callPackage ../development/libraries/haskell/th-reify-many {};
 
   Thrift = callPackage ../development/libraries/haskell/Thrift {};
@@ -2558,6 +2613,8 @@ self :
 
   twitterTypes = callPackage ../development/libraries/haskell/twitter-types {};
 
+  twitterTypesLens = callPackage ../development/libraries/haskell/twitter-types-lens {};
+
   TypeCompose = callPackage ../development/libraries/haskell/TypeCompose {};
 
   typeEq = callPackage ../development/libraries/haskell/type-eq {};
@@ -2567,6 +2624,8 @@ self :
   typeNatural = callPackage ../development/libraries/haskell/type-natural {};
 
   typeLevelNaturalNumber = callPackage ../development/libraries/haskell/type-level-natural-number {};
+
+  typographyGeometry = callPackage ../development/libraries/haskell/typography-geometry {};
 
   tz = callPackage ../development/libraries/haskell/tz {
     pkgs_tzdata = pkgs.tzdata;
@@ -2667,6 +2726,10 @@ self :
   vectorThUnbox = callPackage ../development/libraries/haskell/vector-th-unbox {};
 
   vinyl = callPackage ../development/libraries/haskell/vinyl {};
+
+  vkAwsRoute53 = callPackage ../development/libraries/haskell/vk-aws-route53 {};
+
+  vkPosixPty = callPackage ../development/libraries/haskell/vk-posix-pty {};
 
   void = callPackage ../development/libraries/haskell/void {};
 
@@ -2946,6 +3009,8 @@ self :
   taffybar = callPackage ../applications/misc/taffybar {};
 
   validation = callPackage ../development/libraries/haskell/validation {};
+
+  vimus = callPackage ../applications/audio/vimus {};
 
   xlsx = callPackage ../development/libraries/haskell/xlsx {};
 
