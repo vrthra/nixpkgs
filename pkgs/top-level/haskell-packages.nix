@@ -245,6 +245,8 @@ self :
   binary_0_7_2_2 = callPackage ../development/libraries/haskell/binary/0.7.2.2.nix {};
   binary = null;                # core package since ghc >= 7.2.x
 
+  binaryStrict = callPackage ../development/libraries/haskell/binary-strict {};
+
   binaryConduit = callPackage ../development/libraries/haskell/binary-conduit {};
 
   binaryShared = callPackage ../development/libraries/haskell/binary-shared {};
@@ -256,6 +258,8 @@ self :
   bindingsLibusb = callPackage ../development/libraries/haskell/bindings-libusb {
     libusb = pkgs.libusb1;
   };
+
+  bindingsPortaudio = callPackage ../development/libraries/haskell/bindings-portaudio {};
 
   bindingsPosix = callPackage ../development/libraries/haskell/bindings-posix {};
 
@@ -336,6 +340,8 @@ self :
   bytestringProgress = callPackage ../development/libraries/haskell/bytestring-progress {};
 
   bzlib = callPackage ../development/libraries/haskell/bzlib {};
+
+  call = callPackage ../development/libraries/haskell/call {};
 
   c2hs = callPackage ../development/tools/haskell/c2hs {};
 
@@ -554,6 +560,8 @@ self :
 
   cpu = callPackage ../development/libraries/haskell/cpu {};
 
+  daemons = callPackage ../development/libraries/haskell/daemons { };
+
   dataAccessor = callPackage ../development/libraries/haskell/data-accessor/data-accessor.nix {};
 
   dataAccessorTemplate = callPackage ../development/libraries/haskell/data-accessor/data-accessor-template.nix {};
@@ -768,6 +776,8 @@ self :
 
   entropy = callPackage ../development/libraries/haskell/entropy {};
 
+  elevator = callPackage ../development/libraries/haskell/elevator {};
+
   equationalReasoning = callPackage ../development/libraries/haskell/equational-reasoning {};
 
   equivalence = callPackage ../development/libraries/haskell/equivalence {};
@@ -851,6 +861,8 @@ self :
   filesystemConduit = callPackage ../development/libraries/haskell/filesystem-conduit {};
 
   final = callPackage ../development/libraries/haskell/final {};
+
+  fixed = callPackage ../development/libraries/haskell/fixed {};
 
   fgl = callPackage ../development/libraries/haskell/fgl {};
 
@@ -952,6 +964,8 @@ self :
 
   gitlibTest = callPackage ../development/libraries/haskell/gitlib-test {};
 
+  gl = callPackage ../development/libraries/haskell/gl {};
+
   glade = callPackage ../development/libraries/haskell/glade {
     inherit (pkgs.gnome) libglade;
     gtkC = pkgs.gtk;
@@ -1038,6 +1052,8 @@ self :
   groupoids = callPackage ../development/libraries/haskell/groupoids {};
 
   hakyll = callPackage ../development/libraries/haskell/hakyll {};
+
+  half = callPackage ../development/libraries/haskell/half {};
 
   hamlet = callPackage ../development/libraries/haskell/hamlet {};
 
@@ -1238,6 +1254,8 @@ self :
 
   hoogleLocal = callPackage ../development/libraries/haskell/hoogle/local.nix {};
 
+  hoopl = callPackage ../development/libraries/haskell/hoopl {};
+
   hopenssl = callPackage ../development/libraries/haskell/hopenssl {};
 
   hosc = callPackage ../development/libraries/haskell/hosc {
@@ -1325,6 +1343,8 @@ self :
   hspecContrib = callPackage ../development/libraries/haskell/hspec-contrib {};
 
   hspecDiscover = callPackage ../development/libraries/haskell/hspec-discover {};
+
+  hspecLaws = callPackage ../development/libraries/haskell/hspec-laws {};
 
   hstatsd = callPackage ../development/libraries/haskell/hstatsd {};
 
@@ -1425,10 +1445,6 @@ self :
   ivor = callPackage ../development/libraries/haskell/ivor {};
 
   ivory = callPackage ../development/libraries/haskell/ivory {};
-
-  ixdopp = callPackage ../development/libraries/haskell/ixdopp {
-    preprocessorTools = self.preprocessorTools_0_1_3;
-  };
 
   ixset = callPackage ../development/libraries/haskell/ixset {};
 
@@ -1548,7 +1564,11 @@ self :
 
   liftedBase = callPackage ../development/libraries/haskell/lifted-base {};
 
+  linAlg = callPackage ../development/libraries/haskell/lin-alg {};
+
   linear = callPackage ../development/libraries/haskell/linear {};
+
+  linearOpenGL = callPackage ../development/libraries/haskell/linear-opengl {};
 
   linuxInotify = callPackage ../development/libraries/haskell/linux-inotify {};
 
@@ -1680,6 +1700,8 @@ self :
 
   monadLogger = callPackage ../development/libraries/haskell/monad-logger {};
 
+  monadIO = callPackage ../development/libraries/haskell/monadIO {};
+
   monadPar_0_1_0_3 = callPackage ../development/libraries/haskell/monad-par/0.1.0.3.nix {};
   monadPar_0_3_4_6 = callPackage ../development/libraries/haskell/monad-par/0.3.4.6.nix {};
   monadPar = self.monadPar_0_3_4_6;
@@ -1743,6 +1765,10 @@ self :
   multiset = callPackage ../development/libraries/haskell/multiset {};
 
   murmurHash = callPackage ../development/libraries/haskell/murmur-hash {};
+
+  mvc = callPackage ../development/libraries/haskell/mvc {};
+
+  mvcUpdates = callPackage ../development/libraries/haskell/mvc-updates {};
 
   mwcRandom = callPackage ../development/libraries/haskell/mwc-random {};
 
@@ -1828,6 +1854,10 @@ self :
 
   oeis = callPackage ../development/libraries/haskell/oeis {};
 
+  ofx = callPackage ../development/libraries/haskell/ofx {};
+
+  opaleye = callPackage ../development/libraries/haskell/opaleye {};
+
   OpenAL = callPackage ../development/libraries/haskell/OpenAL {};
 
   OpenGL = callPackage ../development/libraries/haskell/OpenGL {};
@@ -1870,6 +1900,8 @@ self :
   parseargs = callPackage ../development/libraries/haskell/parseargs {};
 
   parsec = callPackage ../development/libraries/haskell/parsec {};
+
+  parsecExtra = callPackage ../development/libraries/haskell/parsec-extra {};
 
   parsek = callPackage ../development/libraries/haskell/parsek {};
 
@@ -1981,15 +2013,15 @@ self :
   process_1_2_0_0 = callPackage ../development/libraries/haskell/process/1.2.0.0.nix {};
   process = null;      # core package since forever
 
+  productProfunctors = callPackage ../development/libraries/haskell/product-profunctors {};
+
   profiteur = callPackage ../development/tools/haskell/profiteur {};
 
   preludeExtras = callPackage ../development/libraries/haskell/prelude-extras {};
 
   preludeSafeenum = callPackage ../development/libraries/haskell/prelude-safeenum {};
 
-  preprocessorTools_0_1_3 = callPackage ../development/libraries/haskell/preprocessor-tools/0.1.3.nix {};
-  preprocessorTools_1_0_1 = callPackage ../development/libraries/haskell/preprocessor-tools/1.0.1.nix {};
-  preprocessorTools = self.preprocessorTools_1_0_1;
+  preprocessorTools = callPackage ../development/libraries/haskell/preprocessor-tools {};
 
   presburger = callPackage ../development/libraries/haskell/presburger {};
 
@@ -2636,6 +2668,8 @@ self :
   unbound = callPackage ../development/libraries/haskell/unbound {};
 
   unboundedDelays = callPackage ../development/libraries/haskell/unbounded-delays {};
+
+  unboundGenerics = callPackage ../development/libraries/haskell/unbound-generics {};
 
   unificationFd = callPackage ../development/libraries/haskell/unification-fd {};
 
