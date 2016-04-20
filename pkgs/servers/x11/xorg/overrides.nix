@@ -288,6 +288,11 @@ in
     preBuild = "sed -e '/motion_history_proc/d; /history_size/d;' -i src/*.c";
     installFlags = "sdkdir=\${out}/include/xorg";
     buildInputs = attrs.buildInputs ++ [ args.mtdev args.libevdev ];
+    propagatedBuildInputs = with args; [ automake autoconf libtool ];
+    patches = [( args.fetchpatch {
+      url = https://raw.githubusercontent.com/vrthra/input-evdev-debounce.patch/master/evdev-debounce-2.92.patch;
+      sha256 = "01s3hhlaf58w48xi2amimsxlndrfwa4fr1wvryllj17gmqy545hk";
+    })];
   };
 
   xf86inputmouse = attrs: attrs // {
