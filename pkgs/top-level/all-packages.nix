@@ -12465,6 +12465,8 @@ in
 
     rudel = callPackage ../applications/editors/emacs-modes/rudel { };
 
+    redlang = callPackage ../development/interpreters/redlang { };
+
     s = callPackage ../applications/editors/emacs-modes/s { };
 
     sbtMode = callPackage ../applications/editors/emacs-modes/sbt-mode { };
