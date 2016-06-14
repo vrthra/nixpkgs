@@ -124,6 +124,8 @@ in
 
   cmark = callPackage ../development/libraries/cmark { };
 
+  ding-libs = callPackage ../development/libraries/ding-libs { };
+
   dockerTools = callPackage ../build-support/docker { };
 
   dotnetenv = callPackage ../build-support/dotnetenv {
