@@ -44,7 +44,8 @@ let
 in
 
 stdenv.mkDerivation rec {
-  name = "glib-${ver_maj}.${ver_min}";
+  name = "glib-${version}";
+  version = "${ver_maj}.${ver_min}";
 
   src = fetchurl {
     url = "mirror://gnome/sources/glib/${ver_maj}/${name}.tar.xz";
@@ -121,7 +122,7 @@ stdenv.mkDerivation rec {
 
   passthru = {
      gioModuleDir = "lib/gio/modules";
-     inherit flattenInclude;
+     inherit flattenInclude version;
   };
 
   meta = with stdenv.lib; {

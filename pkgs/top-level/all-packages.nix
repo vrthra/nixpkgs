@@ -7024,6 +7024,20 @@ in
     doCheck = true;
     libffi = libffi.override { doCheck = true; };
   };
+
+  glib-with-plugins = pkgs.buildEnv {
+    name = "glib-with-plugins-${self.glib.version}";
+    inherit (self.glib) passthru;
+    paths = with glib; [dev out docdev];
+    buildInputs = [sssd];
+    postBuild = ''
+      mkdir -p "$out/lib"
+      cp ${sssd}/lib/libnss_sss.* $out/lib/
+      touch $out/lib/me.lib
+    '';
+  };
+
+
   glibmm = callPackage ../development/libraries/glibmm { };
 
   glib_networking = callPackage ../development/libraries/glib-networking {};
