@@ -7104,6 +7104,18 @@ in
   glfw2 = callPackage ../development/libraries/glfw/2.x.nix { };
   glfw3 = callPackage ../development/libraries/glfw/3.x.nix { };
 
+  glibc-with-plugins = pkgs.buildEnv {
+    name = "glibc-with-plugins";
+    paths = with glibc; [dev out bin static];
+    # inherit (self.glibc) passthru;
+    buildInputs = [sssd];
+    postBuild = ''
+      mkdir -p $out/lib/
+      cp ${sssd}/lib/libnss_sss.* $out/lib/
+      cp ${sssd}/lib/libnss_sss.so.2 $out/lib/libnss_sss.so
+    '';
+  };
+
   glibc = callPackage ../development/libraries/glibc {
     installLocales = config.glibc.locales or false;
     gccCross = null;
@@ -7284,6 +7296,7 @@ in
     doCheck = true;
     libffi = libffi.override { doCheck = true; };
   };
+
   glibmm = callPackage ../development/libraries/glibmm { };
 
   glib_networking = callPackage ../development/libraries/glib-networking {};
