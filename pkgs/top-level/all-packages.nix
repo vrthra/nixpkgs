@@ -3453,6 +3453,8 @@ in
 
   sitecopy = callPackage ../tools/networking/sitecopy { };
 
+  sssd = callPackage ../tools/system/sssd { };
+
   stricat = callPackage ../tools/security/stricat { };
 
   staruml = callPackage ../tools/misc/staruml { inherit (gnome) GConf; libgcrypt = libgcrypt_1_5; };
