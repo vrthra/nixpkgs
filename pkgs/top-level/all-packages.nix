@@ -5682,9 +5682,15 @@ in
     inherit (darwin) CF configd;
     self = python34;
   });
+  python35x = hiPrio (callPackage ../development/interpreters/python/3.5 {
+    inherit (darwin) CF configd;
+    self = python35;
+    libc = glibc-with-plugins;
+  });
   python35 = hiPrio (callPackage ../development/interpreters/python/3.5 {
     inherit (darwin) CF configd;
     self = python35;
+    libc = glibc;
   });
   pypy = callPackage ../development/interpreters/pypy {
     self = pypy;

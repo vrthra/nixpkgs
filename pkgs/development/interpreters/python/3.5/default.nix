@@ -13,7 +13,7 @@
 , callPackage
 , self
 , python35Packages
-
+, libc
 , CF, configd
 }:
 
@@ -41,6 +41,7 @@ let
     tk
     libX11
     xproto
+    libc
   ] ++ optionals stdenv.isDarwin [ CF configd ];
 in
 stdenv.mkDerivation {
